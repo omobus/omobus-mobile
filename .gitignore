@@ -1,0 +1,12 @@
+.libs/
+.test/
+*build-*/
+contrib/
+*.user
+*.ncb
+*.suo
+*.7z
+*.tar
+*.cab
+*.gz
+*.bz2

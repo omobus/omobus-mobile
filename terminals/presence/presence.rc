@@ -1,0 +1,98 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "../../version"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "OMOBUS-presence-document"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_X_USER_DOCUMENT     "<?xml version=""1.0"" encoding=""utf-16""?>\n<user_document\n vstamp=""%vstamp%""\n dev_id=""%dev_id%""\n user_id=""%user_id%""\n fix_dt=""%fix_dt%""\n satellite_dt=""%satellite_dt%""\n latitude=""%latitude%""\n longitude=""%longitude%""\n doc_type=""%doc_type%""\n doc_id=""%doc_id%""\n account_id=""%account_id%""\n activity_type_id=""%activity_type_id%""\n w_cookie=""%w_cookie%""\n a_cookie=""%a_cookie%""/>"
+    IDS_X_DOC_PRESENCE_H    "<?xml version=""1.0"" encoding=""utf-16""?>\n<presence\n vstamp=""%vstamp%""\n dev_id=""%dev_id%""\n fix_dt=""%fix_dt%""\n doc_id=""%doc_id%""\n user_id=""%user_id%""\n w_cookie=""%w_cookie%""\n a_cookie=""%a_cookie%""\n activity_type_id=""%activity_type_id%""\n account_id=""%account_id%""\n created_dt=""%created_dt%""\n created_gps_la=""%created_gps_la%""\n created_gps_lo=""%created_gps_lo%""\n created_gps_dt=""%created_gps_dt%""\n closed_dt=""%closed_dt%""\n closed_gps_la=""%closed_gps_la%""\n closed_gps_lo=""%closed_gps_lo%""\n closed_gps_dt=""%closed_gps_dt%""\n qty_pos=""%qty_pos%"">\n%rows%</presence>"
+    IDS_X_DOC_PRESENCE_T    "<row\n pos_id=""%pos_id%""\n prod_id=""%prod_id%""\n facing=""%facing%"" stock=""%stock%""/>\n"
+    IDS_J_PRESENCE          "%date%;%account_id%;%prod_id%;%facing%;%stock%;\n"
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""../../version""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""presence.rc2"" \r\n"
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "presence.rc2" 
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

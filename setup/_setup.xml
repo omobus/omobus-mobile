@@ -1,0 +1,195 @@
+<wap-provisioningdoc>
+  <!--
+	<characteristic type="Registry">
+	  <characteristic type="HKLM\System\Loader\LoadModuleLow">
+	     <parm name="libbz2-1.dll" value="1" datatype="integer" />
+	     <parm name="libcharset-1.dll" value="1" datatype="integer" />
+	     <parm name="libcurl-4.dll" value="1" datatype="integer" />
+	     <parm name="libgcc_s_sjlj-1.dll" value="1" datatype="integer" />
+	     <parm name="libgcrypt-11.dll" value="1" datatype="integer" />
+	     <parm name="libgnutls-26.dll" value="1" datatype="integer" />
+	     <parm name="libgpg-error-0.dll" value="1" datatype="integer" />
+	     <parm name="libiconv-2.dll" value="1" datatype="integer" />
+	     <parm name="libidn-11.dll" value="1" datatype="integer" />
+	     <parm name="libmcrypt-4.dll" value="1" datatype="integer" />
+	     <parm name="libtasn1-3.dll" value="1" datatype="integer" />
+	     <parm name="zlib1.dll" value="1" datatype="integer" />
+	  </characteristic>
+	</characteristic>
+	-->
+
+	<characteristic type="Registry">
+	  <characteristic type="HKLM\init">
+	     <parm name="Launch201" value="\OMOBUS\daemons-host.exe" datatype="string" />
+	  </characteristic>
+	</characteristic>
+
+<!--
+	<characteristic type="FileOperation">
+		<characteristic type="%CE4%" translation="install">
+			<characteristic type="MakeDir" />
+			<characteristic type="omobus-daemons.lnk" translation="install" >
+				<characteristic type="Shortcut">
+					<parm name="Source" value="\OMOBUS\daemons-host.exe" translation="install" />
+				</characteristic>
+			</characteristic>
+		</characteristic>
+	</characteristic>
+-->
+	
+	<characteristic type="Registry">
+		<characteristic type="HKCR\WPXfile\DefaultIcon">
+			<parm name="" value="\OMOBUS\wpxp.exe, 128" datatype="string" />
+		</characteristic>
+		<characteristic type="HKCR\.wpx">
+			<parm name="" value="WPXfile" datatype="string" />
+		</characteristic>
+		<characteristic type="HKCR\WPXfile\Shell\Open\Command">
+			<parm name="" value="&quot;\OMOBUS\wpxp.exe&quot; --file &quot;%1&quot;" datatype="string" />
+		</characteristic>
+	</characteristic>
+	
+	<characteristic type="Registry">
+		<characteristic type="HKLM\SOFTWARE\Microsoft\Today\Items\OMOBUS">
+			<parm name="Enabled" value="1" datatype="integer" />
+			<parm name="Type" value="4" datatype="integer" />
+			<parm name="Startup" value="\OMOBUS\omobus.exe" datatype="string" />
+			<parm name="Title" value="OMOBUS" datatype="string" />
+			<parm name="Options" value="0" datatype="integer" />
+			<parm name="DLL" value="\OMOBUS\today-plugin.dll" datatype="string" />
+			<parm name="Selectability" value="2" datatype="integer" />
+		</characteristic>
+	</characteristic>
+
+	<characteristic type="FileOperation">
+		<characteristic type="%CE11%" translation="install">
+			<characteristic type="MakeDir" />
+			<characteristic type="OMOBUS.lnk" translation="install" >
+				<characteristic type="Shortcut">
+					<parm name="Source" value="\OMOBUS\omobus.exe" translation="install" />
+				</characteristic>
+			</characteristic>
+		</characteristic>
+	</characteristic>
+
+	<characteristic type="CertificateStore">
+		<characteristic type="ROOT">
+			<characteristic type="D27864F5CE777821C35C3ECEEE8A3FEB6C3551E5">
+				<parm name="EncodedCertificate" value="MIIB7zCCAVigAwIBAgIQjo5DkSMlMp9Evi6xSNBQDTANBgkqhkiG9w0BAQQFADAR
+MQ8wDQYDVQQDEwZPTU9CVVMwIBcNMDgxMjMxMjEwMDAwWhgPMjA5ODEyMzEyMTAw
+MDBaMBExDzANBgNVBAMTBk9NT0JVUzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkC
+gYEAqVRyM1C1fFpssoxhDoNuKRyypJhCGy9KlAqwhS2dFOeV30wjnBYGWy7fF3hr
+wGWCl1YmJsMHKv6VXgdf8P+xPsLoCXeWogP3WTC3BtXa8LRHIjYWccp9cJ0C1e0B
+GF835Z34LvPgCzYqsM7IfMVbRgGZQUiY1TW36ayKI9TtVnUCAwEAAaNGMEQwQgYD
+VR0BBDswOYAQOahgqPNGph91GqwWeUYR76ETMBExDzANBgNVBAMTBk9NT0JVU4IQ
+jo5DkSMlMp9Evi6xSNBQDTANBgkqhkiG9w0BAQQFAAOBgQBleDyRhNyZ4cvSRsBk
+XLJrW5SIwq7A50OtA48yq2hh+Al28DsJG2Wwu1eC1Vt8FmXYN3lOvModRsNCIAI+
+FJJhg40xY5EwgzsEQWXrKEEF2CrjNLDhC5p3gv1LPpgiNXgRaJ/1BZ+3LwsE1and
+ZVgYx9IR2yHDeg91hd3l52VvsQ=="/>
+			</characteristic>
+		</characteristic>
+
+		<characteristic type="Privileged Execution Trust Authorities">
+			<characteristic type="D27864F5CE777821C35C3ECEEE8A3FEB6C3551E5">
+				<parm name="EncodedCertificate" value="MIIB7zCCAVigAwIBAgIQjo5DkSMlMp9Evi6xSNBQDTANBgkqhkiG9w0BAQQFADAR
+MQ8wDQYDVQQDEwZPTU9CVVMwIBcNMDgxMjMxMjEwMDAwWhgPMjA5ODEyMzEyMTAw
+MDBaMBExDzANBgNVBAMTBk9NT0JVUzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkC
+gYEAqVRyM1C1fFpssoxhDoNuKRyypJhCGy9KlAqwhS2dFOeV30wjnBYGWy7fF3hr
+wGWCl1YmJsMHKv6VXgdf8P+xPsLoCXeWogP3WTC3BtXa8LRHIjYWccp9cJ0C1e0B
+GF835Z34LvPgCzYqsM7IfMVbRgGZQUiY1TW36ayKI9TtVnUCAwEAAaNGMEQwQgYD
+VR0BBDswOYAQOahgqPNGph91GqwWeUYR76ETMBExDzANBgNVBAMTBk9NT0JVU4IQ
+jo5DkSMlMp9Evi6xSNBQDTANBgkqhkiG9w0BAQQFAAOBgQBleDyRhNyZ4cvSRsBk
+XLJrW5SIwq7A50OtA48yq2hh+Al28DsJG2Wwu1eC1Vt8FmXYN3lOvModRsNCIAI+
+FJJhg40xY5EwgzsEQWXrKEEF2CrjNLDhC5p3gv1LPpgiNXgRaJ/1BZ+3LwsE1and
+ZVgYx9IR2yHDeg91hd3l52VvsQ=="/>
+			</characteristic>
+		</characteristic>
+
+		<characteristic type="SPC">
+			<characteristic type="D27864F5CE777821C35C3ECEEE8A3FEB6C3551E5">
+				<parm name="EncodedCertificate" value="MIIB7zCCAVigAwIBAgIQjo5DkSMlMp9Evi6xSNBQDTANBgkqhkiG9w0BAQQFADAR
+MQ8wDQYDVQQDEwZPTU9CVVMwIBcNMDgxMjMxMjEwMDAwWhgPMjA5ODEyMzEyMTAw
+MDBaMBExDzANBgNVBAMTBk9NT0JVUzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkC
+gYEAqVRyM1C1fFpssoxhDoNuKRyypJhCGy9KlAqwhS2dFOeV30wjnBYGWy7fF3hr
+wGWCl1YmJsMHKv6VXgdf8P+xPsLoCXeWogP3WTC3BtXa8LRHIjYWccp9cJ0C1e0B
+GF835Z34LvPgCzYqsM7IfMVbRgGZQUiY1TW36ayKI9TtVnUCAwEAAaNGMEQwQgYD
+VR0BBDswOYAQOahgqPNGph91GqwWeUYR76ETMBExDzANBgNVBAMTBk9NT0JVU4IQ
+jo5DkSMlMp9Evi6xSNBQDTANBgkqhkiG9w0BAQQFAAOBgQBleDyRhNyZ4cvSRsBk
+XLJrW5SIwq7A50OtA48yq2hh+Al28DsJG2Wwu1eC1Vt8FmXYN3lOvModRsNCIAI+
+FJJhg40xY5EwgzsEQWXrKEEF2CrjNLDhC5p3gv1LPpgiNXgRaJ/1BZ+3LwsE1and
+ZVgYx9IR2yHDeg91hd3l52VvsQ=="/>
+			</characteristic>
+		</characteristic>
+
+		<characteristic type="Unprivileged Execution Trust Authorities">
+			<characteristic type="D27864F5CE777821C35C3ECEEE8A3FEB6C3551E5">
+				<parm name="EncodedCertificate" value="MIIB7zCCAVigAwIBAgIQjo5DkSMlMp9Evi6xSNBQDTANBgkqhkiG9w0BAQQFADAR
+MQ8wDQYDVQQDEwZPTU9CVVMwIBcNMDgxMjMxMjEwMDAwWhgPMjA5ODEyMzEyMTAw
+MDBaMBExDzANBgNVBAMTBk9NT0JVUzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkC
+gYEAqVRyM1C1fFpssoxhDoNuKRyypJhCGy9KlAqwhS2dFOeV30wjnBYGWy7fF3hr
+wGWCl1YmJsMHKv6VXgdf8P+xPsLoCXeWogP3WTC3BtXa8LRHIjYWccp9cJ0C1e0B
+GF835Z34LvPgCzYqsM7IfMVbRgGZQUiY1TW36ayKI9TtVnUCAwEAAaNGMEQwQgYD
+VR0BBDswOYAQOahgqPNGph91GqwWeUYR76ETMBExDzANBgNVBAMTBk9NT0JVU4IQ
+jo5DkSMlMp9Evi6xSNBQDTANBgkqhkiG9w0BAQQFAAOBgQBleDyRhNyZ4cvSRsBk
+XLJrW5SIwq7A50OtA48yq2hh+Al28DsJG2Wwu1eC1Vt8FmXYN3lOvModRsNCIAI+
+FJJhg40xY5EwgzsEQWXrKEEF2CrjNLDhC5p3gv1LPpgiNXgRaJ/1BZ+3LwsE1and
+ZVgYx9IR2yHDeg91hd3l52VvsQ=="/>
+			</characteristic>
+		</characteristic>
+	</characteristic>
+
+	<characteristic type="CM_Networks">
+		<nocharacteristic type="МТС" />
+		<nocharacteristic type="Мегафон" />
+		<nocharacteristic type="Билайн" />
+
+	 	<characteristic type="МТС">
+			<parm name="DestId" value="{FDCD1551-B027-4194-9F8B-6382760B295A}" />
+		</characteristic>
+
+		<characteristic type="Мегафон">
+			<parm name="DestId" value="{7EC65ACA-4C95-42bd-9063-05C1AED21851}" />
+		</characteristic>
+
+		<characteristic type="Билайн">
+			<parm name="DestId" value="{CF407C9F-FFF3-4ae6-A541-E21BEA45410E}" />
+		</characteristic>
+	</characteristic>
+
+  <characteristic type="CM_GPRSEntries">
+  	<nocharacteristic type="МТС-GPRS" />
+  	<nocharacteristic type="Мегафон-GPRS" />
+  	<nocharacteristic type="Билайн-GPRS" />
+
+  	<characteristic type="МТС-GPRS">
+			<parm name="DestId" value="{FDCD1551-B027-4194-9F8B-6382760B295A}" />
+			<parm name="UserName" value="" />
+			<parm name="Password" value="" />
+    	<parm name="Domain" value="" />
+			<characteristic type="DevSpecificCellular"> 
+        <parm name="GPRSInfoAccessPointName" value="internet.mts.ru" /> 
+			</characteristic> 
+		</characteristic>
+
+  	<characteristic type="Мегафон-GPRS">
+			<parm name="DestId" value="{7EC65ACA-4C95-42bd-9063-05C1AED21851}" />
+			<parm name="UserName" value="" />
+			<parm name="Password" value="" />
+    	<parm name="Domain" value="" />
+			<characteristic type="DevSpecificCellular"> 
+        <parm name="GPRSInfoAccessPointName" value="internet" /> 
+			</characteristic> 
+		</characteristic>
+
+  	<characteristic type="Билайн-GPRS">
+			<parm name="DestId" value="{CF407C9F-FFF3-4ae6-A541-E21BEA45410E}" />
+			<parm name="UserName" value="" />
+			<parm name="Password" value="" />
+    	<parm name="Domain" value="" />
+			<characteristic type="DevSpecificCellular"> 
+        <parm name="GPRSInfoAccessPointName" value="internet.beeline.ru" /> 
+			</characteristic> 
+		</characteristic>
+  </characteristic>
+
+</wap-provisioningdoc>

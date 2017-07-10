@@ -1,0 +1,3 @@
+EXPORTS
+	start_daemon
+	stop_daemon

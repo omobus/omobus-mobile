@@ -1,0 +1,83 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "../../version"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""../../version""\r\n"
+    "\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""activity.rc2"" \r\n"
+    "\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "OMOBUS-activity"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_J_USER_ACTIVITY     "%begin%;%end%;%account_id%;%activity_type_id%;\n"
+    IDS_X_USER_ACTIVITY     "<?xml version=""1.0"" encoding=""utf-16""?>\n<user_activity\n vstamp=""%vstamp%""\n dev_id=""%dev_id%""\n user_id=""%user_id%""\n fix_dt=""%fix_dt%""\n state=""%state%""\n w_cookie=""%w_cookie%""\n a_cookie=""%a_cookie%""\n satellite_dt=""%satellite_dt%""\n latitude=""%latitude%""\n longitude=""%longitude%""\n activity_type_id=""%activity_type_id%""\n account_id=""%account_id%""/>"
+    IDS_X_USER_DOCUMENT     "<?xml version=""1.0"" encoding=""utf-16""?>\n<user_document\n vstamp=""%vstamp%""\n dev_id=""%dev_id%""\n user_id=""%user_id%""\n fix_dt=""%fix_dt%""\n satellite_dt=""%satellite_dt%""\n latitude=""%latitude%""\n longitude=""%longitude%""\n doc_type=""explanation""\n doc_id=""%doc_id%""\n activity_type_id=""%activity_type_id%""\n account_id=""%account_id%""\n w_cookie=""%w_cookie%""\n a_cookie=""%a_cookie%""/>"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "activity.rc2" 
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

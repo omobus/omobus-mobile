@@ -1,0 +1,107 @@
+Introduction
+This article is for tests purpose only, the best way to sign code is Mobile2Market, Versign etc...
+With WM5 Microsoft has implements a new security schema on PocketPC too.
+The new schema requires that the applications must be signed with a valid certificate to run without problems on devices. 
+For simple applications the schema is not a problem, you'll get some borings popup to run the applications or to install cabs the first time. We have more problems when we try to deploy services or drivers, our dlls or applications will not run because the schema is loaded after service.exe and device.exe processes!
+In this article i'll explain how we can deploy our own certificate on device and sign our code.
+Step 1 - Create the certificate
+The first step is create our certificate.  To do this we'll use the utility makecert.exe:
+
+makecert -r -sv MyCert.pvk -n "CN=MyCert" -b 01/01/2000 -e 01/01/2099 MyCert.cer 
+
+For more information about makecert.exe parameters refer to MSDN library.
+Now we have our certificate (MyCert.cer) and private key (MyCert.pvk) but we need of .pfx to pass it to signtool.exe, so go on step 2.
+Step 2 - Create .pfx from the .cer
+To create .pfx file from .cer file we've to run pvk2pfx.exe tool:
+
+pvk2pfx.exe -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx
+
+The command will creates .pfx file (MyCert.pfx).
+Step 3 - Create the provisioningdoc xml
+Ok, now we are ready to build our cab which will installs our certificate on devices. To do this we've to create our wap-provisioningdoc xml.
+
+<?xml version="1.0" encoding="utf-8" ?>
+<wap-provisioningdoc>
+<characteristic type="CertificateStore">
+    <characteristic type="Privileged Execution Trust Authorities">
+        <characteristic type="[cert_sha1]">
+            <parm name="EncodedCertificate" value="[cert_base64]" />
+        </characteristic>
+    </characteristic>
+</characteristic>
+<characteristic type="CertificateStore">
+    <characteristic type="SPC">
+        <characteristic type="[cert_sha1]">
+            <parm name="EncodedCertificate" value="[cert_base64]" />
+            <parm name="Role" value="222" />
+        </characteristic>
+    </characteristic>
+</characteristic>
+</wap-provisioningdoc>
+
+This is the standard schema for our provisioningdoc.
+We've to fill [cert_sha1] and [cert_base64] with our values get from MyCert.cer. To obtain these values we've to use openssl.exe tool:
+
+openssl sha1 MyCert.cer > MyCert_sha1.txt
+openssl base64 -in MyCert.cer > MyCert_base64.txt
+
+With these commands we get two files with sha1 and base64 values of our certificate. So create an empty file '_setup.xml' and past the content into:
+Collapse
+
+<?xml version="1.0" encoding="utf-8" ?>
+<wap-provisioningdoc>
+<characteristic type="CertificateStore">
+    <characteristic type="Privileged Execution Trust Authorities">
+        <characteristic type="30bc827f441fa4437b645163e49ade7226b362c3">
+            <parm name="EncodedCertificate" value="MIIB7zCCAVigAwIBAgIQSZfc9OLump1HzDNpsZ2edTANBgkqhkiG9w0BAQQFADAR
+MQ8wDQYDVQQDEwZNeUNlcnQwIBcNOTkxMjMxMjMwMDAwWhgPMjA5ODEyMzEyMzAw
+MDBaMBExDzANBgNVBAMTBk15Q2VydDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkC
+gYEAx6QQIhONxvNHrK+p1qgy/AY3/Q/rf7XGvMYmxENAdQFjgP2CpH/1Bgsa8MwK
+XxViZqW2DbixDas77M+cG3BnxtdK42xuhBlzVCq8wiOh7/q9SZp9wKj94c7k5jok
+L1BgHT2dH2DHUgnxG6Y9mvowX/DJ8gvbNKR1p4FQpK74NvUCAwEAAaNGMEQwQgYD
+VR0BBDswOYAQfyce0/6l1q4oeResHzIEZ6ETMBExDzANBgNVBAMTBk15Q2VydIIQ
+SZfc9OLump1HzDNpsZ2edTANBgkqhkiG9w0BAQQFAAOBgQAEqy6rTbjmV/6zgYBY
++gQQqBHf4GMvyEUR9g5+p/esG7GDve/qbZ4bm1BOSdRfgzMsda2guciMD54QPHNp
+k+wdE0tSuQN90Dla8109GmTdFyZkVezSDmuCkbX0BjQW2dJ6egvGG2mnA7Q6/5yt
+4ftcV6hExesZviGUKXdBhBM2Dg==" />
+        </characteristic>
+    </characteristic>
+</characteristic>
+<characteristic type="CertificateStore">
+    <characteristic type="SPC">
+        <characteristic type="30bc827f441fa4437b645163e49ade7226b362c3">
+            <parm name="EncodedCertificate" value="MIIB7zCCAVigAwIBAgIQSZfc9OLump1HzDNpsZ2edTANBgkqhkiG9w0BAQQFADAR
+MQ8wDQYDVQQDEwZNeUNlcnQwIBcNOTkxMjMxMjMwMDAwWhgPMjA5ODEyMzEyMzAw
+MDBaMBExDzANBgNVBAMTBk15Q2VydDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkC
+gYEAx6QQIhONxvNHrK+p1qgy/AY3/Q/rf7XGvMYmxENAdQFjgP2CpH/1Bgsa8MwK
+XxViZqW2DbixDas77M+cG3BnxtdK42xuhBlzVCq8wiOh7/q9SZp9wKj94c7k5jok
+L1BgHT2dH2DHUgnxG6Y9mvowX/DJ8gvbNKR1p4FQpK74NvUCAwEAAaNGMEQwQgYD
+VR0BBDswOYAQfyce0/6l1q4oeResHzIEZ6ETMBExDzANBgNVBAMTBk15Q2VydIIQ
+SZfc9OLump1HzDNpsZ2edTANBgkqhkiG9w0BAQQFAAOBgQAEqy6rTbjmV/6zgYBY
++gQQqBHf4GMvyEUR9g5+p/esG7GDve/qbZ4bm1BOSdRfgzMsda2guciMD54QPHNp
+k+wdE0tSuQN90Dla8109GmTdFyZkVezSDmuCkbX0BjQW2dJ6egvGG2mnA7Q6/5yt
+4ftcV6hExesZviGUKXdBhBM2Dg==" />
+            <parm name="Role" value="222" />
+        </characteristic>
+    </characteristic>
+</characteristic>
+</wap-provisioningdoc>
+
+We're ready to build our cab to deploy on our devices.
+Step 4 - Build the .cab
+This is the most simple step, we've to run makecab.exe tool:
+
+makecab.exe _setup.xml mycert_cert.cab
+
+Our certificate is now ready to install on devices!
+Step 5 - Sing our application code
+After we installed the certificate on our devices we can sign our code with MyCert.pfx our code to run as trusted.
+We've to use signtool.exe tool:
+
+signtool.exe sign /f MyCert.pfx *.exe *.cab
+
+or
+
+signcode -v MyCert.pvk -spc MyCert.cer *.exe 
+
+With these simple five steps we've our certificate applications! 

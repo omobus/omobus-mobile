@@ -1,0 +1,1 @@
+SHA1(omobus-mobile.cer)= d27864f5ce777821c35c3eceee8a3feb6c3551e5

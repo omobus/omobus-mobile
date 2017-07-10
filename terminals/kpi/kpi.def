@@ -1,0 +1,3 @@
+EXPORTS
+	terminal_init
+	terminal_deinit

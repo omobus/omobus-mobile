@@ -1,0 +1,1 @@
+"C:\Program Files\Microsoft Visual Studio 8\Common7\Tools\Bin\signtool.exe" sign /f omobus-mobile.pfx *.dll
