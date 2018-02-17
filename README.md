@@ -10,7 +10,7 @@ You may download SDK from the official Microsoft site: http://www.microsoft.com.
 
 # 2. Building omobus-droid
 
-Open sln files and build the in the following order:
+Open sln files and build then in the following order:
 
     * zlib
     * bzip2
